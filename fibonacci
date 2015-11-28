@@ -2,14 +2,14 @@
 input=$1
 
 fibonacci () {
-  if [ $1 -le 1 ]
+  if [ "$1" -le 1 ]
   then
     echo 1
   else
-    prev=$(fibonacci $[$1 - 1])
-    prev_prev=$(fibonacci $[$1 - 2])
-    echo $[$prev + $prev_prev]
+    prev=$( fibonacci $(($1 - 1)) )
+    prev_prev=$( fibonacci $(($1 - 2)) )
+    echo $(( prev + prev_prev ))
   fi
 }
 
-echo $(fibonacci $input)
+fibonacci "$input"
