@@ -1,0 +1,10 @@
+#!/bin/bash
+
+value=$((RANDOM % 2))
+
+if [ $value -eq 0 ]
+then
+	echo "heads"
+else
+	echo "tails"
+fi
