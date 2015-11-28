@@ -1,0 +1,17 @@
+#!/bin/bash
+max=$1
+
+for i in `seq 1 $max`; do
+	if [ $[$i % 15] -eq 0 ]
+	then
+		echo "fizzbuzz"
+	elif [ $[$i % 5] -eq 0 ]
+	then
+		echo "fizz"
+	elif [ $[$i % 3] -eq 0 ]
+	then
+		echo "buzz"
+	else
+		echo $i
+	fi
+done
