@@ -1,0 +1,15 @@
+#!/bin/bash
+# https://en.wikipedia.org/wiki/Collatz_conjecture
+value=$1
+steps=0
+
+while [ "$value" != 1 ]; do
+	if [ $[$value % 2] == 0 ]; then
+		value=$[$value / 2]
+	else
+		value=$[$value * 3 + 1]
+	fi
+	((steps++))
+done
+
+echo $steps
