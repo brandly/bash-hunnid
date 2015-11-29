@@ -1,0 +1,23 @@
+#!/bin/bash
+
+length=$#
+# Convert arguments into array
+list=( "$@" )
+
+swapped=0
+while [ $swapped == 0 ]; do
+	swapped=1
+	for i in $(seq 1 $((length - 1)) ); do
+		prev=$((i - 1))
+
+		if [ "${list[$prev]}" -gt "${list[$i]}" ]; then
+			swap=${list[$prev]}
+			list[$prev]=${list[$i]}
+			list[$i]=$swap
+
+			swapped=0
+		fi
+	done
+done
+
+echo "${list[*]}"
