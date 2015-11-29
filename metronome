@@ -1,0 +1,17 @@
+#!/bin/bash
+bpm=$1
+
+function main {
+	seconds_per_beep=$( echo "scale=4; 1 / $bpm * 60" | bc )
+
+	while true; do
+		play_beep
+		sleep "$seconds_per_beep"
+	done
+}
+
+function play_beep {
+	echo -ne '\007'
+}
+
+main
